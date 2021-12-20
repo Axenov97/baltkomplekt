@@ -1,8 +1,4 @@
 # dependencies
 node_modules
-
 .idea
 
-# production
-
-static
