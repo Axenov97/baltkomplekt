@@ -10,35 +10,35 @@ const User = sequelize.define('user', {
 
 const News = sequelize.define('news', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    title: {type: DataTypes.STRING(126)},
-    description: {type: DataTypes.STRING(126)},
-    description_2: {type: DataTypes.STRING(126)},
-    description_3: {type: DataTypes.STRING(126)},
-    keywords: {type: DataTypes.STRING(126)},
+    title: {type: DataTypes.TEXT('long')},
+    description: {type: DataTypes.TEXT('long')},
+    description_2: {type: DataTypes.TEXT('long')},
+    description_3: {type: DataTypes.TEXT('long')},
+    keywords: {type: DataTypes.TEXT('long')},
     publish_date: {type: DataTypes.DATE},
 })
 
 const Faq = sequelize.define('faq', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    question: {type: DataTypes.STRING(126)},
-    answer: {type: DataTypes.STRING(126)},
+    question: {type: DataTypes.TEXT('long')},
+    answer: {type: DataTypes.TEXT('long')},
 })
 
 const Cases = sequelize.define('case', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    title: {type: DataTypes.STRING(126)},
-    description: {type: DataTypes.STRING(126)},
-    meta_title: {type: DataTypes.STRING(126)},
-    meta_description: {type: DataTypes.STRING(126)},
-    meta_keywords: {type: DataTypes.STRING(126)},
-    meta_link: {type: DataTypes.STRING(126)}
+    title: {type: DataTypes.TEXT('long')},
+    description: {type: DataTypes.TEXT('long')},
+    meta_title: {type: DataTypes.TEXT('long')},
+    meta_description: {type: DataTypes.TEXT('long')},
+    meta_keywords: {type: DataTypes.TEXT('long')},
+    meta_link: {type: DataTypes.TEXT('long')}
 })
 
 const Materials = sequelize.define('materials', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    title: {type: DataTypes.STRING(126)},
-    description: {type: DataTypes.STRING(126)},
-    document: {type: DataTypes.STRING(126), allowNull: false}
+    title: {type: DataTypes.TEXT('long')},
+    description: {type: DataTypes.TEXT('long')},
+    document: {type: DataTypes.TEXT('long'), allowNull: false}
 })
 
 module.exports = {
