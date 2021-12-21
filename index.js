@@ -1,5 +1,13 @@
 require('dotenv').config()
 const express = require('express')
+
+const https = require('https')
+// const http = require('http')
+const fs = require('fs')
+const privateKey  = fs.readFileSync('/etc/letsencrypt/live/vm671464.vps.masterhost.tech/privkey.pem');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/vm671464.vps.masterhost.tech/fullchain.pem');
+const credentials = {key: privateKey, cert: certificate};
+
 const sequelize = require('./db')
 const models = require('./models/models')
 const cors = require('cors')
@@ -23,7 +31,13 @@ const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT, () => {console.log(`Server ${PORT}`)})
+        // const httpServer = http.createServer(app);
+        const httpsServer = https.createServer(credentials, app);
+
+        // app.listen(PORT, () => {console.log(`Server ${PORT}`)})
+        // httpServer.listen(PORT, () =>{console.log(`http : ${PORT}`)});
+        httpsServer.listen(PORT, () =>{console.log(`https : ${PORT}`)});
+
     }
     catch (e) {
         console.log(e)
