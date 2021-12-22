@@ -1,7 +1,14 @@
 const ApiError = require('../error/ApiError');
 require('dotenv').config()
 const mailer = require('nodemailer')
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const nodemailer = require("nodemailer")
 
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.use(cors())
 class sendmailController {
     async send(req, res, next) {
         try{
@@ -9,8 +16,8 @@ class sendmailController {
             const transporter = mailer.createTransport({
                 service: "Yandex",
                 auth: {
-                    user: process.env.EMAIL,
-                    pass: process.env.EMAIL_PASSWORD
+                    user: 'web.baltkomlekt@yandex.ru',
+                    pass: 'sxqfzyfyogleerdt'
                 }
             })
 
