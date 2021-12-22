@@ -12,8 +12,7 @@ router.use('/news', newsRouter)
 router.use('/faq', faqRouter)
 router.use('/case', casesRouter)
 router.use('/materials', materialsRouter)
-
-router.use('/sendmail', sendmailRouter)
+router.use('/mail', sendmailRouter)
 
 
 module.exports = router
