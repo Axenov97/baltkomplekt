@@ -1,14 +1,8 @@
 const ApiError = require('../error/ApiError');
 require('dotenv').config()
-const mailer = require('nodemailer')
-const bodyParser = require("body-parser")
 const cors = require("cors")
-const nodemailer = require("nodemailer")
+const mailer = require("nodemailer")
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
-app.use(cors())
 class sendmailController {
     async send(req, res, next) {
         try{
