@@ -1,8 +1,10 @@
+import {Faq} from "../models/models";
+
 const ApiError = require('../error/ApiError');
 require('dotenv').config()
 const mailer = require("nodemailer")
 
-class sendmailController {
+class SendmailController {
     async send(req, res, next) {
         try{
             // let { text } = req.body
@@ -25,6 +27,11 @@ class sendmailController {
             next(ApiError.badRequest(e.message))
         }
     }
+
+    async testGet(req, res) {
+        let faq = await Faq.findAll()
+        return res.json(faq)
+    }
 }
 
-module.exports = new sendmailController()
+module.exports = new SendmailController()
