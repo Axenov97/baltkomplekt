@@ -19,8 +19,7 @@ class SendmailController {
                 to: "web.baltkomlekt@yandex.ru", //получатели
                 subject: "Заявка с сайта", //заголовок
                 // text: text
-                html: `<div style="border:1px solid black;padding:10px;
-                            font-family:sans-serif;line-height:2;font-size:16px;">
+                html: `<div style="padding:5px; font-family:sans-serif; line-height:2; font-size:16px;">
                             <h1 style="font-size: 20px;font-weight: bold;">
                                 Заявка по кнопке ${button}
                             </h1>
@@ -31,6 +30,7 @@ class SendmailController {
                         </div>`
             }
             await transporter.sendMail(mailOptions)
+            return res.json(transporter)
         } catch (e) {
             next(ApiError.badRequest(e.message))
         }
