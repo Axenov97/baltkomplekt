@@ -16,7 +16,7 @@ class SendmailController {
 
             const mailOptions = {
                 from: 'web.baltkomlekt@yandex.ru', //отправитель
-                to: "web.baltkomlekt@yandex.ru", //получатели
+                to: "web.baltkomlekt@yandex.ru, dimka180497@mail.ru",  //получатели
                 subject: "Заявка с сайта", //заголовок
                 // text: text
                 html: `<div style="padding:5px; font-family:sans-serif; line-height:2; font-size:16px;">
