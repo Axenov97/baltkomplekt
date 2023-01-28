@@ -9,14 +9,14 @@ class SendmailController {
             const transporter = mailer.createTransport({
                 service: "Yandex",
                 auth: {
-                    user: 'web.baltkomlekt@yandex.ru',
-                    pass: 'sxqfzyfyogleerdt'
+                    user:  process.env.EMAIL,
+                    pass: process.env.EMAIL_PASSWORD
                 }
             })
 
             const mailOptions = {
-                from: 'web.baltkomlekt@yandex.ru', //отправитель
-                to: "web.baltkomlekt@yandex.ru, dimka180497@mail.ru",  //получатели
+                from: process.env.EMAIL, //отправитель
+                to: process.env.EMAIL,  //получатели
                 subject: "Заявка с сайта", //заголовок
                 // text: text
                 html: `<div style="padding:5px; font-family:sans-serif; line-height:2; font-size:16px;">
